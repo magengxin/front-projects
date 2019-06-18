@@ -1,0 +1,40 @@
+.girl-name
+    img(src="#{girl.name}")
+    a.a-off(href="javascript:")
+        img(src="image/a-off.png")
+    a.a-on(href="javascript:")
+        img(src="image/a-on.png")
+
+    audio(src="#{girl.audio}")
+        p 你的浏览器不支持audio标签
+
+.icon-table1
+    .table
+        table
+            tbody
+                tr
+                    th 昵称
+                    td.first=girl.nickname
+                    th 血型
+                    td.last=girl.xuexing
+                tr
+                    th 生日
+                    td.first=girl.birthday    
+                    th 身高
+                    td.last=girl.height
+                tr
+                    th 星座
+                    td.first=girl.xingzuo
+                    th 特长
+                    td.last=girl.techang
+                tr
+                    th 兴趣
+                    td.first=girl.hobby
+                    th 所属
+                    td.last=girl.team
+
+.icon-table2
+    each jn, i in girl.jineng
+        .skill(data-desc="#{jn.desc}" class="#{i==0?'active':''}")
+            img(src="#{jn.icon}")
+    .desc=(girl.jineng[0] && girl.jineng[0].desc) || ''

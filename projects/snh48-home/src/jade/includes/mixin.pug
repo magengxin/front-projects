@@ -1,0 +1,6 @@
+mixin webp($path)
+    picture
+        <!--[if IE 9]><video style="display: none;"><![endif]-->
+        source(type="image/webp" srcset=$path.substring(0, $path.lastIndexOf('.')) + '.webp' )
+        <!--[if IE 9]></video><![endif]-->
+        img(alt="" srcset=$path)

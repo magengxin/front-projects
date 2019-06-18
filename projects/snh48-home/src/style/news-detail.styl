@@ -1,0 +1,372 @@
+@import "common/common.styl"
+@import "common/sprite-1.styl"
+
+a.btn
+    display: inline-block
+    text-decoration: none
+    text-align: center
+
+$nav-top = px(40)
+.view-news-detail
+    position: relative
+    width 100%
+    max-width px(1920)
+    min-height 100%
+    margin: $nav-top 0 0
+
+    background #f3f3f3 url('../image/news-top.jpg') center top no-repeat
+    background-size auto px(760)
+
+    .section
+        overflow: hidden
+        margin px(450) auto 0
+        padding-bottom px(60)
+        width px(990)
+
+    .icon-logo
+        abs-left 1%
+        top px(10)
+
+    $main-color = #a85092
+
+    .left-side
+        display: inline-block
+        vertical-align: top
+        padding-bottom px(20)
+        width px(210)
+
+        border-radius: px(8)
+        border 1px solid #dd82c4
+        background #f4d8ef
+
+        .icon-ercode
+            position: relative
+            margin px(20) auto 0
+
+            .light
+                abs-top 0
+                left 0
+                right 0
+                width 100%
+                margin auto
+                height px(16)
+                
+                background url('../image/light.png') center no-repeat
+                background-size 100% 100%
+
+                animation: up-down 1.6s infinite linear both
+
+    .main-wrapper
+        display: inline-block
+        vertical-align: top
+        margin-left px(10)
+        width px(760)
+
+    .main
+        padding px(40)
+        border-radius: px(8)
+        border 1px solid #fbc7ed
+
+        background #ffffff
+
+        .title
+            position: relative
+            height px(60)
+            line-height: @height
+            border-bottom 1px solid #beb5b6
+
+            h2
+                margin 0
+                color #909090
+                font-size: px(38)
+
+            .nav-link
+                abs-right 0
+                top px(15)
+                font-size: px(16)
+                color #919191
+
+                a
+                    color @color
+                    text-decoration: none
+
+    .conmment-box
+        margin px(20) auto 0
+        padding px(20)
+        border 2px solid #fcd2ef
+        border-radius: px(12)
+        background: #fff
+
+        h2
+            font-size: px(20)
+            color #3b758c
+
+        .comments
+            padding px(20) px(-8)
+            
+            .comment
+                position: relative
+                display: inline-block
+                vertical-align: top
+                margin px(8)
+                padding 0 px(20)
+                height px(40)
+                line-height: @height
+                border-radius: @height
+                font-size: px(16)
+
+                text-decoration: none
+                text-align: center
+
+                color #626262
+                background #f8f8f8
+
+                &:hover
+                    &:before
+                        z-index: 2
+                        content: "已有"attr(data-cnt)"人赞同此观点"
+                        position: absolute;
+                        left 50%
+                        transform: translateX(-50%)
+                        bottom: 110%
+                        margin auto
+                        width auto
+                        padding 0 px(10)
+                        height px(26)
+                        line-height: @height
+                        border-radius: @height
+                        white-space: nowrap;
+
+                        color #fff
+                        font-size: px(14)
+                        background #666
+
+                    &:after
+                        $width = px(8)
+
+                        content: " "
+                        position: absolute;
+                        left 50%
+                        transform: translateX(-50%)
+                        bottom: "calc(110% - %s)" % px(15)
+                        width 0
+                        height 0
+                        border $width solid transparent
+                        border-top $width solid #666
+
+
+                &.color-red
+                    color #fff
+                    background #a879c1
+
+                &.color-orange
+                    background #9fe0f2
+
+                &.color-yellow
+                    background #ffe4fa
+
+        .btn-more
+            position: relative
+            display: none
+            margin px(20) auto
+            width px(156)
+            height px(40)
+            line-height: @height
+            font-size: px(20)
+            border-radius: @height
+
+            text-decoration: none
+            text-align: center
+
+            color #fff
+            background: #5c98ae
+
+            &:before
+                content: " "
+                abs-right 95%
+                top auto
+                bottom 45%
+                margin auto
+                width px(120)
+                height 1px 
+                background #b7d7e0
+
+            &:after
+                content: " "
+                abs-left 95%
+                top auto
+                bottom 45%
+                margin auto
+                width px(120)
+                height 1px 
+                background #b7d7e0
+
+        $btn-width = px(130)
+
+        .label
+            margin px(30) 0 px(10)
+            font-size: px(20)
+            color #3b758c
+
+        .comment-field
+            position: relative
+
+            input
+                padding 0 $btn-width 0 px(16)
+
+                width 100%
+                height px(40)
+                line-height: @height
+
+                outline: none
+                border 1px solid #c5c5c5
+                border-radius: px(12)
+
+                font-size: px(16)
+
+            .commit
+                abs-right 0
+                width $btn-width
+                height px(40)
+                line-height: @height
+                border-radius: px(12)
+
+                text-decoration: none
+                text-align: center
+                font-size: px(18)
+
+                color #fff
+                background: #5c98ae
+                
+
+    .news-content
+        padding px(10) 0
+
+        .news-title
+            margin px(28) 0 px(10)
+            text-align: center
+            font-size: px(22)
+            color #ce6cb3
+
+        .news-date
+            margin-bottom px(20)
+            text-align: center
+            font-size: px(16)
+            color #909090
+
+        .content
+            font-size: px(16)
+            color #626262
+            line-height: 1.6
+
+            p
+                margin px(12) 0
+    
+    .content-box
+        padding 0 px(10)
+
+        h2
+            margin 0 0 px(10)
+            font-size: px(14)
+            color #626262
+
+        .icon-title-call
+            margin px(20) auto
+
+        .phone-tabs
+            margin-bottom px(6)
+            .tab
+                display: inline-block
+                vertical-align: top
+                margin-left px(6)
+
+                width px(90)
+                height px(36)
+                line-height: @height
+                border-radius: px(8)
+                border 1px solid #fff
+
+                text-decoration: none
+                text-align: center
+                font-size: px(16)
+
+                color #fff
+                background: #c2bcbc
+
+                &:first-child
+                    margin-left 0
+
+                &.active
+                    background #ea965f
+
+                svg
+                    margin-top px(-6)
+                    width px(19)
+
+        .phone,.code
+            margin-bottom px(6)
+            padding 0 px(10)
+            width 100%
+            height px(38)
+            line-height: @height
+            border-radius: px(6)
+            border 1px solid #a5a5a5
+
+            outline: none
+            font-size: px(16)
+
+        .code
+            margin-right px(6)
+            display: inline-block
+            vertical-align: top
+            width px(96)
+
+        .ercode
+            display: inline-block
+            vertical-align: top
+            width px(85)
+            height px(38)
+            line-height: @height
+            border-radius: px(8)
+
+            text-decoration: none
+            text-align: center
+            color #fff
+            background #a2d5e5
+
+        .submit
+            width 100%
+            height px(70)
+            line-height: @height
+            border 1px solid #86c3d9
+            border-radius: px(12)
+
+            text-align: center
+            font-size: px(22)
+            color #3f85a1
+            background #b8f0ff
+
+
+        .content-box
+            z-index: 22
+            abs-center()
+            top 0
+            bottom 0
+            margin auto
+            padding px(75) 0 0 px(70)
+
+            &[data-tag="android"]
+                .android
+                    display block
+                    
+            &[data-tag="ios"]
+                .ios
+                    display block
+
+        .icon-close
+            abs-right px(12)
+            top px(40)
+
+    .footer
+        padding-bottom px(10)
+        background #232323

@@ -1,0 +1,98 @@
+extends ./includes/layout
+
+block checkOs
+    include ./includes/auto-resizer
+
+    script.
+        if (isMobile) {
+            location.href="mobile.html"
+        }
+
+block styles
+    link(rel="stylesheet" href="css/newslist.css")
+
+block mainContent
+
+    .view-news
+        .section
+            .icon-logo
+            .icon-slogan
+
+            .left-side
+                .content-box
+                    .icon-title-call
+                    h2 请选择你的机型：
+                    .phone-tabs
+                        a.tab.active(href="javascript:").
+                            <svg viewBox="0,0,22,27">
+                                <path fill-rule="evenodd"  fill="rgb(255, 255, 255)" d="M15.444,26.194 C14.101,26.194 12.722,25.209 11.239,25.209 C9.543,25.209 8.129,26.299 6.928,26.299 C5.268,26.299 3.783,24.859 2.582,22.645 C0.920,19.622 0.178,16.141 0.178,13.892 C0.178,9.639 3.819,6.370 7.493,6.370 C9.260,6.370 9.932,7.740 11.558,7.740 C13.607,7.740 14.843,6.299 16.327,6.299 C18.448,6.299 19.826,7.565 20.850,8.830 L20.780,8.866 C19.225,9.955 18.377,11.642 18.377,13.576 C18.377,15.965 19.509,17.617 21.593,18.743 L21.593,18.918 C21.593,19.023 21.629,19.129 21.629,19.270 C21.629,22.046 18.660,26.194 15.444,26.194 ZM11.484,7.285 L11.484,7.144 C11.413,6.758 11.378,6.407 11.378,6.125 C11.378,3.137 13.568,1.239 16.007,0.571 L16.042,0.712 C16.077,1.063 16.113,1.380 16.113,1.626 C16.113,4.755 13.887,6.547 11.484,7.285 Z"/>
+                            </svg>
+                            IOS
+                        a.tab(href="javascript:").
+                            <svg viewBox="0,0,23,29">
+                                <path fill-rule="evenodd"  fill="rgb(255, 255, 255)" d="M21.227,19.402 C20.364,19.402 19.664,18.631 19.664,17.680 L19.664,10.949 C19.664,9.997 20.364,9.226 21.227,9.226 C22.090,9.226 22.791,9.997 22.791,10.949 L22.791,17.680 C22.791,18.631 22.090,19.402 21.227,19.402 ZM17.565,22.897 L16.172,22.897 L16.172,26.643 C16.172,27.594 15.471,28.365 14.608,28.365 C13.745,28.365 13.044,27.594 13.044,26.643 L13.044,22.897 L10.610,22.897 L10.610,26.643 C10.610,27.594 9.911,28.365 9.047,28.365 C8.183,28.365 7.482,27.594 7.482,26.643 L7.482,22.897 L6.089,22.897 C5.416,22.897 4.870,22.306 4.870,21.575 L4.870,9.279 L18.784,9.279 L18.784,21.575 C18.784,22.306 18.239,22.897 17.565,22.897 ZM8.499,2.907 L7.212,0.883 C7.137,0.763 7.156,0.605 7.255,0.531 C7.355,0.456 7.497,0.494 7.574,0.613 L8.910,2.715 C9.789,2.339 10.766,2.129 11.796,2.129 C12.826,2.129 13.804,2.339 14.683,2.715 L16.019,0.613 C16.095,0.494 16.238,0.456 16.337,0.531 C16.437,0.605 16.456,0.763 16.380,0.883 L15.094,2.907 C17.138,3.937 18.571,5.897 18.753,8.183 L4.839,8.183 C5.021,5.897 6.454,3.937 8.499,2.907 ZM14.827,6.095 C15.253,6.095 15.597,5.721 15.597,5.261 C15.597,4.799 15.253,4.426 14.827,4.426 C14.403,4.426 14.057,4.799 14.057,5.261 C14.057,5.721 14.403,6.095 14.827,6.095 ZM8.861,6.095 C9.286,6.095 9.631,5.721 9.631,5.261 C9.631,4.799 9.286,4.426 8.861,4.426 C8.436,4.426 8.091,4.799 8.091,5.261 C8.091,5.721 8.436,6.095 8.861,6.095 ZM15.233,0.028 L15.237,0.030 C15.236,0.031 15.235,0.032 15.234,0.032 L15.233,0.028 ZM2.365,19.402 C1.502,19.402 0.800,18.631 0.800,17.680 L0.800,10.949 C0.800,9.997 1.502,9.226 2.365,9.226 C3.229,9.226 3.929,9.997 3.929,10.949 L3.929,17.680 C3.929,18.631 3.229,19.402 2.365,19.402 Z"/>
+                            </svg>
+                            Android
+                    .form.android
+                        .field-box
+                            input.phone(type="text" placeholder="请输入手机号")
+                        .field-box
+                            input.code(type="text" placeholder="请输入验证码")
+                            a.ercode(href="javascript:") 获取验证码
+
+                        .field-box
+                            a.btn.submit(href="javascript:") 提交申请
+
+                    .icon-ercode
+                        .light
+
+            .main
+                
+                .title
+                    h2 新闻中心
+
+                    .news-tabs.clearfix
+                        a.tab.active(href="javascript:" data-tag="latest") 最新
+                        a.tab(href="javascript:" data-tag="news") 新闻
+                        a.tab(href="javascript:" data-tag="gg") 公告
+                        a.tab(href="javascript:" data-tag="gg") 活动
+                        a.tab(href="javascript:" data-tag="gl") 攻略
+
+                        a.more.pull-right +
+
+                .news-content(data-tag="latest")
+                    .list
+                        a(href="./news-detail.html" data-tag="新闻" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新骏梦游戏渠道击飞新骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="新闻" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="新闻" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="新闻" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="新闻" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="攻略" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="攻略" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="攻略" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="攻略" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+                        a(href="./news-detail.html" data-tag="攻略" data-date="05/08") 
+                            span 元气少女的终极考验！！骏梦游戏渠道击飞新
+
+                    .pagination
+                        a.first(href="javascript:") 首页
+                        a.prev(href="javascript:") 上一页
+                        a.page.current(href="javascript:") 1
+                        a.page(href="javascript:") 2
+                        a.next(href="javascript:") 下一页
+                        a.last(href="javascript:") 尾页
+
+        .footer
+            include includes/footer.html
+
+block scripts
+    script(src="js/news.js")

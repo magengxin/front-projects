@@ -1,0 +1,183 @@
+// 设置变量
+
+@import "variables.styl"
+@import "functions.styl"
+@import "mixins.styl"
+@import "h5bp.styl"
+@import "footer.styl"
+@import "top-bar.styl"
+// @import "header.styl"
+
+*
+    box-sizing border-box
+
+.top_bar 
+    z-index: 211
+    fixed-top 0
+    //max-width px(1920)
+    
+[title^="站长"]
+    display: none
+
+body
+    margin 0
+    padding 0
+    font-family $main-font-family
+    font-size: px(14)
+
+.loader
+    z-index $loading-z-index
+    fixed-stretch()
+    
+    display flex
+    justify-content center
+    align-content center
+    align-items: center;
+    
+    font-size px(24)
+    color #444
+    background #fff
+
+.loading-box
+    $img = 'loading.gif'
+
+    position relative
+    img-box($img)
+
+    .loading-value
+        abs-top(px(116.5))
+        overflow hidden
+        margin-left px(8)
+        width px(238)
+        height px(12)
+        border-radius @height
+
+        span
+            display block
+            width 0
+            height @height
+            transition width .6s
+            border-radius @height
+            background #fa95f5
+
+            will-change width
+    
+img
+    max-width 100%
+
+ul
+    margin 0
+    padding: 0
+    font-style: normal
+    list-style: none
+
+    li 
+        padding: 0
+        margin: 0
+
+.clearfix
+  &::after 
+    display: block;
+    content: "";
+    clear: both;
+
+.pull-left
+    float left
+
+.pull-right
+    float right
+
+img
+    max-width: 100%
+    vertical-align: top
+
+.container
+    height: 100%
+    max-width px(1920)
+    margin auto
+    overflow-x: hidden
+    overflow-y: auto
+
+.toast-container
+    z-index $loading-z-index - 1
+    fixed-top 30%
+    left auto
+    right auto
+    margin auto
+    width 100%
+    text-align center
+    pointer-events: none
+    
+    // max-width 70%
+
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    align-content center
+
+.toast
+    position relative
+    margin-bottom px(8)
+    padding px(18) px(40)
+
+    width auto
+    height auto
+
+    border-radius px(12)
+    font-size px(24)
+
+    // shadow-2dp()
+    word-break: break-all;
+
+    background rgba(0,0,0,.8)
+    color #fff
+
+html
+    font-size: 40px
+
+    @media all and (max-width: 1440px)
+        font-size: 29px
+
+    @media all and (max-height: 900px)
+        font-size: 34px
+
+    @media all and (max-height: 800px)
+        font-size: 30px
+
+    @media all and (max-height: 700px)
+        font-size: 29px
+
+html,body
+    height 100%
+    background #121015;
+
+.container
+    display: flex
+    justify-content: flex-start
+    flex-direction column
+
+.icon-logo
+    display: inline-block
+
+$gap = px(20)
+.icon-icon
+    abs-left($gap)
+    top auto
+    bottom px(-20)
+
+a.btn.wait
+    background #ddd !important
+    color #fff !important
+
+@keyframes up-down {
+    0%{
+        transform: translate3d(0,0,0)
+    }
+    50%{
+        transform: translate3d(0,px(140),0)
+    }
+    100%{
+        transform: translate3d(0,0,0)
+    }
+}

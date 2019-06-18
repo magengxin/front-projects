@@ -1,0 +1,48 @@
+.header
+    margin-bottom px(40)
+    height $header-height
+    line-height: @height
+    box-shadow: 0 0 px(12) rgba(0,0,0,.1)
+    background #fff
+
+    @media all and (max-width: 750px)
+        display none
+
+    .header-wrapper
+        position: relative
+        margin auto
+        width 100%
+        max-width $content-width
+
+    .logo
+        display: inline-block
+        vertical-align: middle
+       
+        img
+            $icon-height = px(117)
+            margin-top (($header-height - $icon-height) / 2)
+            margin-right px(20)
+            height px(117)
+
+    .navs
+        display: inline-block
+        vertical-align: top
+        white-space: nowrap
+        height @height
+
+        font-size: 0
+        a.nav
+            display inline-block
+            padding 0 px(24)
+            width px(120)
+            height @height
+            line-height: @height
+
+            text-decoration: none
+            text-align: center
+            color $main-font-color
+            font-size: px(18)
+
+            &:hover,&.active
+                border-bottom px(2) solid $main-light-color
+                color $main-light-color

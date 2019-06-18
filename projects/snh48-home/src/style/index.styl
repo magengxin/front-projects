@@ -1,0 +1,1043 @@
+@import "common/common.styl"
+@import "common/sprite.styl"
+
+a.btn
+    display: inline-block
+    text-decoration: none
+    text-align: center
+
+$tt = translate3d(px(580), px(-380), px(-1600))
+$tt2 = translate3d(px(-299), px(-170), px(-800))
+$tt3 = translate3d(px(299), px(-170), px(-800))
+
+@keyframes f2b {
+    0% {
+        transform translate3d(0, 0, 0)
+    }
+    40% {
+        transform translate3d(px(-199), px(-170), px(-800))
+    }
+    80% {
+        transform translate3d(px(99), px(-170), px(-800))
+    }
+    100% {
+        transform $tt
+    }
+}
+
+@keyframes b2f {
+    0% {
+        transform $tt
+    }
+    40% {
+        transform translate3d(px(499), px(-170), px(-800))
+    }
+    100% {
+        transform translate3d(0, 0, 0)
+    }
+}
+
+.top_bar
+    position: absolute
+    display: none
+
+$nav-top = px(40)
+.view-index
+    abs-top 0
+    left 0
+    overflow: hidden
+
+    width 100%
+    height 100%
+
+    .swiper-slide
+        cursor: url('../image/pointer.png'), auto
+
+    &.show-footer
+        .footer,
+        .swiper
+            transform: translate3d(0, px(-223), 0)
+
+        @media all and (max-width: 1440px)
+            .footer,
+            .swiper
+                transform: translate3d(0, px(-253), 0)
+
+    .swiper
+        overflow: hidden
+        z-index: 2
+        width 100%
+        height 100%
+        transition: transform 400ms
+
+    .section
+        overflow: hidden
+        width 100%
+        height 100%
+
+        &:before, &:after
+            content: " "
+            abs-top px(-13)
+            left 0
+            width 100%
+            height px(26)
+            bg-img('line.png', 100%, 100%)
+
+        &:after
+            top auto
+            bottom px(-13)
+
+        &.section1
+            margin-top $nav-top
+            height "calc(100% - %s)" % $nav-top
+
+            .top_bar
+                position: absolute
+                display: block
+
+            &:before
+                content: none
+
+        &.section4
+            &:after
+                content: none
+
+    .icon-logo
+        margin px(10) 0 0 2%
+
+    .icon-go-down,
+    .icon-btn-call,
+    .icon-play
+        z-index: 2
+        abs-bottom px(40)
+        left 0
+        right 0
+        margin auto
+
+    .icon-btn-call
+        bottom px(110)
+
+    .icon-slogan
+        abs-bottom px(210)
+        right 0
+        margin auto
+
+        background-repeat: no-repeat
+
+    .icon-play
+        bottom px(260)
+        left 50%
+        margin-left px(320)
+
+    for $i in (1..5)
+        .section{$i}
+            bg-img('section' + $i + '.jpg', cover)
+            background-position: center top
+
+    .swiper-button-disabled
+        filter: saturate(70%) opacity(.6)
+
+    .section2
+
+        .up-videos
+            text-align center
+
+            &[data-tag='v']
+                .videos,
+                .icon-btn-video-v
+                    display block !important
+
+            &[data-tag='s']
+                .snapshots,
+                .icon-btn-video-s
+                    display block !important
+
+            .icon-btn-to-up
+                abs-right px(20)
+                top px(12)
+
+            .video-btns
+                abs-left 0
+                width px(423)
+                height px(61)
+
+            .up-video-img-btns
+                > div
+                    display none
+                    abs-left 0
+
+            .btn-up-video,
+            .btn-snapshots
+                z-index 2
+                abs-left 0
+                width 50%
+                height 100%
+
+            .btn-snapshots
+                left 50%
+
+            .videos
+                display none
+                margin px(146) px(-7) 0
+                text-align center
+
+            .snapshots
+                display none
+                position relative
+                margin px(146) auto 0
+                padding 0 px(20)
+                text-align center
+
+                .icon-s-arrow-left,
+                .icon-s-arrow-right
+                    z-index 20
+                    abs-left 0
+                    top 0
+                    bottom 0
+                    margin auto
+
+                .icon-s-arrow-right
+                    left auto
+                    right 0
+
+                .image
+                    display inline-block
+                    vertical-align top
+                    width px(262)
+                    height px(148)
+
+                    background-repeat no-repeat
+                    background-size cover
+                    background-position center
+                    cursor pointer
+
+            .more
+                abs-right px(30)
+                top px(120)
+
+                width px(26)
+                height @width
+                line-height @height
+                border-radius px(4)
+
+                text-decoration none
+                font-size px(24)
+                color #fff
+                background #ce6cb3
+
+            .video
+                overflow hidden
+                position relative
+                display inline-block
+                vertical-align top
+                margin 0 px(7)
+                width px(262)
+                height px(148)
+                cursor pointer
+
+                border-radius px(6)
+                border 1px solid #fff
+
+                background-repeat no-repeat
+                background-size cover
+                background-position center
+
+                &:before
+                    content: " "
+                    abs-center()
+                    top 0
+                    bottom 0
+                    margin auto
+
+                    width px(49)
+                    height @width
+                    bg-img('play-video.png')
+
+                    transition all .5s
+                    transform rotate(0)
+
+                &:hover
+                    &:before
+                        transform rotate(360deg)
+
+        .icon-up-video-board
+            overflow hidden
+            position relative
+            margin px(40) auto 0
+            font-size px(12)
+
+        .new-board
+            display flex
+            justify-content space-between
+            align-items start
+            align-content start
+
+            margin px(120) auto 0
+            width px(1260)
+            height px(320)
+
+            > *
+                margin 0 px(4)
+
+        .connect-us
+            flex auto 1 0
+            width px(270)
+            height 100%
+            border-radius px(20)
+
+        .share
+            z-index: 2
+            position relative
+
+            width px(270)
+
+            border-radius px(20)
+            background #ffe0f6
+            border px(2) solid #fff
+
+            .title
+                margin px(19) 0 0 px(20)
+
+                font-size px(16)
+                font-weight bold
+                color #704281
+
+            .icon-share-girl
+                z-index -1
+                abs-right px(-80)
+                top px(-60)
+
+            .icon-ercode
+                abs-top px(50)
+                left px(18)
+
+            .light
+                abs-top px(44)
+                left px(12)
+                right auto
+                margin auto
+                width px(148)
+                height px(16)
+
+                background url('../image/light.png') center no-repeat
+                background-size 100% 100%
+
+                animation: up-down 1.6s infinite linear both
+
+            h2
+                margin-top px(150)
+                margin-bottom px(10)
+                margin-left px(18)
+                font-size: px(16)
+                color #704281
+                font-weight: normal
+                text-align: left
+
+            .share-link
+                margin 0 px(-3) 0 px(15)
+                text-align left
+                a
+                    display: inline-block
+                    margin 0 px(3)
+                    width px(45)
+
+                .to-qq
+                    float none
+
+            .kefu-wrapper
+                padding 0 px(18)
+                height px(46)
+                overflow hidden
+
+                .swiper-wrapper
+                    transition-timing-function: linear !important
+
+            .kefu
+                overflow auto
+                height px(100)
+                margin-top px(10)
+                white-space nowrap
+                width 100%
+
+                p
+                    display inline-block
+                    margin px(10) 0
+                    font-size px(12)
+                    line-height 1
+                    color #704281
+
+                .label
+                    font-size px(14)
+
+                @media all and (max-width: 1440px)
+                    margin-top px(14)
+
+                    p
+                        margin px(8) 0
+
+    .icon-title-news,
+    .icon-title-girl,
+    .icon-title-game
+        z-index: 30
+        abs-center()
+        top px(35)
+
+    .icon-news-board
+        margin auto
+        height 100%
+
+        border-radius px(20)
+        background #fff
+
+    .nav-tabs
+        z-index: 10
+        abs-top 50%
+        left auto
+        right 14%
+        margin-top px(-80)
+
+        .icon-star
+            margin auto
+
+        .tab
+            position: relative
+            display: block
+            margin px(20) 0
+
+            .icon-star
+                abs-top 100%
+                left 0
+                right 0
+                margin auto
+
+                &.first
+                    top auto
+                    bottom 100%
+
+    .icon-news-board
+        padding 0
+
+    $main-color = #a85092
+
+    .news-tabs
+        font-size: 0
+        background #ff94ce
+        border-radius px(42)
+        .tab
+            overflow hidden
+            z-index: 2
+            position: relative
+            display inline-block
+            margin-bottom -1px
+            width px(90)
+            height px(42)
+            line-height: @height
+            border-bottom 1px solid transparent
+
+            font-size: px(20)
+            text-align: center
+            text-decoration: none
+
+            color $main-color
+
+            transition all .1s
+
+            &:hover, &.active
+                text-decoration: none
+                color #a85092
+                transform translateY(px(6))
+
+                &:after
+                    content: " "
+                    abs-top px(0)
+                    left 10%
+                    width 80%
+                    height 100%
+                    z-index -1
+                    border-top-left-radius px(10)
+                    border-top-right-radius px(10)
+                    background #fff
+
+                &:before
+                    content: " "
+                    abs-right px(5)
+                    top auto
+                    bottom 0
+                    width 50%
+                    height 80%
+                    background rgba(0, 0, 0, .2)
+                    z-index -2
+                    transform rotate(-14deg)
+
+        .more
+            display: inline-block
+            margin px(8) px(20) 0 0
+            width px(20)
+            height @width
+            line-height: @height
+            border-radius: px(4)
+
+            font-size: px(30)
+            text-align: center
+            text-decoration: none
+
+            color #fff
+
+    .news-content
+        padding px(18) px(24)
+
+        > div
+            display: none
+
+        &[data-tag="latest"]
+            .latest
+                display block
+
+        &[data-tag="news"]
+            .news
+                display block
+
+        &[data-tag="gg"]
+            .gg
+                display block
+
+        &[data-tag="gl"]
+            .gl
+                display block
+
+        a
+            position: relative
+            display: block
+            padding 0 px(100) 0 px(50)
+            height px(48)
+            line-height @height
+
+            text-decoration: none
+            font-size px(16)
+            color #626262
+
+            span
+                display: block
+                white-space: nowrap;
+                max-width: px(320)
+                overflow: hidden
+                text-overflow: ellipsis
+
+            &:before
+                content attr(data-tag)
+                abs-left 0
+                top 0
+                bottom 0
+                margin auto
+                width px(42)
+                height px(20)
+                line-height: @height
+                border-radius: px(8)
+
+                font-size: px(16)
+                text-align: center
+                color #fff
+                background $main-color
+
+            &:after
+                content attr(data-date)
+                abs-right 0
+                top 0
+                bottom 0
+                margin auto
+                width px(100)
+                height px(20)
+                line-height: @height
+                border-radius: px(8)
+
+                font-size: px(16)
+                text-align: right
+                color @color
+
+            &:hover
+                color lighten(@color, 20%)
+
+    .news-banners
+        position relative
+        overflow: hidden
+        width px(500)
+        height 100%
+
+        border-radius px(20)
+        border 2px solid #fc97ce
+
+        .swiper-slide
+            overflow: hidden
+            border-radius px(20)
+
+        .banner-img
+            width 100%
+            height 100%
+            background-repeat no-repeat
+            background-size cover
+            background-position: center
+
+        .news-banner-page
+            z-index: 2
+            abs-right px(10)
+            top auto
+            bottom px(10)
+            text-align: right
+
+            .swiper-pagination-bullet
+                width px(14)
+                height @width
+                background #ce6cb3
+                border-radius: @width
+                opacity: 1
+
+                transition: width 200ms
+
+                &.swiper-pagination-bullet-active
+                    width px(40)
+
+    .info-board
+        z-index: 100
+        abs-left 47%
+        top 4%
+        bottom 12%
+        margin auto
+        height px(600)
+
+        .girl-name
+            abs-center()
+            text-align: center
+
+            > img:first-child
+                height px(60)
+
+            .a-on,
+            .a-off
+                display: inline-block
+                vertical-align: top
+                height px(60)
+                padding px(6) 0 0 px(12)
+
+                > img
+                    width px(51)
+
+            .a-on
+                display: none
+
+        .icon-table1
+            margin px(70) 0 px(8) px(8)
+            padding px(28)
+
+            .table
+                overflow: hidden
+                border 1px solid #dad993
+                border-radius: px(10)
+
+            table
+
+                width 100%
+                border-collapse: collapse
+
+                th, td
+                    max-width: 100%
+                    overflow: hidden
+                    text-overflow: ellipsis
+
+                    border 1px solid #dad993
+
+                    &.first
+                        white-space: nowrap;
+                        width px(130)
+
+                    &.last
+                        white-space: nowrap;
+                        max-width px(190)
+
+                th
+                    width px(60)
+                    height px(50)
+
+                    font-size: px(16)
+                    color #b45299
+                    background #eeedb5
+
+                td
+                    padding 0 px(10)
+
+                    color #626262
+                    background #f7f6c4
+
+        .icon-table2
+            padding: px(39) px(42) 0
+            white-space: nowrap
+
+            .skill
+                display: inline-block
+                vertical-align: top
+                margin 0
+                overflow: hidden
+                width px(120)
+                height px(143)
+                border-radius: px(18)
+
+                filter: brightness(.8)
+
+                transition: transform 140ms
+
+                &:hover,
+                &.active
+                    filter: brightness(1)
+
+            .desc
+                abs-bottom px(38)
+                font-size: px(16)
+                left px(45)
+                color #626262
+                max-width: px(470)
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
+
+    .girls
+        height 100%
+
+        .swiper-wrapper
+            z-index: 10
+
+        .girl
+            height 100%
+
+        .image
+            abs-right 54%
+            top 6%
+            bottom 12%
+            margin auto
+
+            max-width px(752)
+            min-width 490px
+            width 40%
+            height 82%
+            perspective: px(1200)
+
+            > img
+                z-index: 2
+                abs-top 0
+                right 0
+                height 100%
+                width auto
+                max-width: none
+
+            .kt
+                z-index: 1
+                transform $tt
+                transform-origin: right top
+
+            .real
+                animation b2f 400ms forwards
+
+            .kt
+                animation f2b 400ms forwards
+
+            &.active
+                .real
+                    z-index: 1
+                    transform $tt
+                    transform-origin: right top
+
+                    animation f2b 300ms forwards
+
+                .kt
+                    animation b2f 300ms forwards
+
+    .icon-turn
+        z-index: 10
+        abs-right 53%
+        top 32%
+
+    .girls-board
+        z-index: 120
+        abs-bottom px(35)
+        left 0
+        right 0
+        margin auto
+        max-width px(1550)
+        height px(180)
+
+        background: linear-gradient(to right, rgba(153, 153, 153, 0) 0%, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0.5) 80%, rgba(229, 229, 229, 0) 100%);
+
+        box-shadow: 0 px(-70) px(110) px(-80) rgba(0, 0, 0, .5), 0 px(70) px(110) px(-80) rgba(0, 0, 0, .5)
+
+        @media all and (max-height: 640px) {
+            transform: scale(.8)
+            bottom 0
+        }
+
+        .mask
+            overflow: hidden
+            height px(180)
+
+        .wrapper
+            margin auto
+            width px(998)
+            height px(240)
+            white-space: nowrap
+            overflow-y: hidden
+            overflow-x: auto
+            user-select: none
+
+        .tab
+            display: inline-block
+            vertical-align: top
+            margin 0 px(3)
+            width px(160)
+            height px(180)
+            filter: brightness(.8)
+
+            transition all 160ms
+
+            &:hover,
+            &.active
+                transform: scale(1.1)
+                filter: brightness(1)
+
+        .icon-arrow-left,
+        .icon-arrow-right
+            abs-right 50%
+            top 0
+            bottom 0
+            margin auto px(580) auto auto
+
+        .icon-arrow-right
+            left 50%
+            right auto
+            margin auto auto auto px(580)
+
+    .dialog-video,
+    .dialog-up-video,
+    .dialog-snapshots,
+    .dialog-commit
+        z-index: 60
+        display none
+        position: fixed
+        top 0
+        left 0
+        bottom 0
+        right 0
+
+        width 100%
+        height 100%
+
+        .mask
+            abs-stretch()
+            background rgba(0, 0, 0, .8)
+
+        .video-content
+            abs-top()
+            bottom 0
+            left 0
+            right 0
+            margin auto
+            width 80%
+            max-width px(1080)
+
+    .dialog-up-video
+        embed
+            z-index 20
+            abs-center()
+            top 0
+            bottom 0
+            margin auto
+            text-align center
+
+            width 60% !important
+            height 70% !important
+
+    .dialog-snapshots
+        .image
+            abs-center()
+            top 0
+            bottom 0
+            margin auto
+            z-index 2
+            width 60%
+            height 70%
+
+            img
+                max-width 100%
+
+    .section4
+        .icon-arrow-left,
+        .icon-arrow-right
+            z-index: 320
+            abs-left 2%
+            top 0
+            bottom 0
+            margin auto
+
+        .icon-arrow-right
+            left auto
+            right 2%
+
+        .wutu
+            height 100%
+
+            .wutu-image
+                margin-top 4%
+                height 96%
+
+            .wutu-1
+                bg-img('f1.png', auto, 100%)
+            .wutu-2
+                bg-img('f2.png', auto, 100%)
+            .wutu-3
+                bg-img('f3.png', auto, 100%)
+            .wutu-4
+                bg-img('f4.png', auto, 100%)
+
+    .dialog-commit
+        h2
+            margin 0 0 px(10)
+            font-size: px(20)
+            color #626262
+
+        .phone-tabs
+            margin-bottom px(20)
+            .tab
+                display: inline-block
+                vertical-align: top
+                margin-right px(12)
+
+                width px(106)
+                height px(40)
+                line-height: @height
+                border-radius: px(8)
+                border 1px solid #fff
+
+                text-decoration: none
+                text-align: center
+                font-size: px(16)
+
+                color #fff
+                background: #c2bcbc
+
+                &.active
+                    background #ea965f
+
+                svg
+                    margin-top px(-6)
+                    width px(22)
+
+        .phone, .code
+            margin-bottom px(20)
+            padding 0 px(10)
+            width px(225)
+            height px(44)
+            line-height: @height
+            border-radius: px(6)
+            border 1px solid #a5a5a5
+
+            outline: none
+            font-size: px(16)
+
+        .code
+            margin-right px(12)
+            display: inline-block
+            vertical-align: top
+            width px(116)
+
+        .ercode
+            display: inline-block
+            vertical-align: top
+            width px(97)
+            height px(44)
+            line-height: @height
+            border-radius: px(8)
+
+            text-decoration: none
+            text-align: center
+            color #fff
+            background #a2d5e5
+
+        .submit
+            width px(226)
+            height px(80)
+            line-height: @height
+            border 1px solid #86c3d9
+            border-radius: px(12)
+
+            text-align: center
+            font-size: px(32)
+            color #3f85a1
+            background #b8f0ff
+
+        .content-box
+            z-index: 22
+            abs-center()
+            top 0
+            bottom 0
+            margin auto
+            padding px(75) 0 0 px(70)
+
+            &[data-tag="android"]
+                .android
+                    display block
+
+            &[data-tag="ios"]
+                .ios
+                    display block
+
+        .icon-close
+            abs-right px(12)
+            top px(40)
+
+        .form
+            display: none
+
+    .dialog-success
+        .success
+            position: absolute
+            left 0
+            right 0
+            top 0
+            bottom 0
+            margin auto
+            padding px(30)
+            width px(480)
+            height px(340)
+
+            border 1px solid #fff
+            border-radius: px(14)
+            text-align: center
+            font-size: px(16)
+            background #8aecfd
+
+            .title
+                font-size: px(58)
+                color #c56b94
+
+            span
+                color #c56b94
+
+            p
+                margin px(10) 0
+
+            .ok
+                display: inline-block
+                padding 0 px(36)
+                margin px(30) 0 0
+                height px(48)
+                line-height: @height
+                border-radius: px(8)
+                border 1px solid #3c929d
+
+                text-decoration: none
+                font-size: px(18)
+
+                background #ff9ac9
+                color #7e2951
+
+    .footer
+        abs-top 100%
+        padding-bottom px(10)
+        width 100%
+        transition: transform 400ms

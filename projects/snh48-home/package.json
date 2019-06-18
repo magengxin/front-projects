@@ -1,0 +1,18 @@
+{
+    "name": "snh48home",
+    "version": "0.0.1",
+    "description": "snh48 home page",
+    "main": "index.js",
+    "scripts": {},
+    "config": {
+        "active": true,
+        "port": 8080,
+        "host": "10.10.0.216",
+        "nojade": false,
+        "dist": "D:/phpStudy/WWW/test/front-projects/projects/snh48-home/dist2",
+        "spriteNames": ["sprite", "sprite-1"]
+    },
+    "author": "chengda",
+    "license": "ISC",
+    "devDependencies": {}
+}

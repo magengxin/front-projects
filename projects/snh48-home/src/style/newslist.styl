@@ -1,0 +1,299 @@
+@import "common/common.styl"
+@import "common/sprite-1.styl"
+
+a.btn
+    display: inline-block
+    text-decoration: none
+    text-align: center
+
+$nav-top = px(40)
+.view-news
+    position: relative
+    width 100%
+    max-width px(1920)
+    min-height 100%
+    margin: $nav-top 0 0
+
+    background #f3f3f3 url('../image/news-top.jpg') center top no-repeat
+    background-size auto px(760)
+
+    .section
+        overflow: hidden
+        margin px(450) auto 0
+        padding-bottom px(100)
+        width px(990)
+
+    .icon-logo
+        abs-left 1%
+        top px(10)
+
+    $main-color = #a85092
+
+    .left-side
+        display: inline-block
+        vertical-align: top
+        padding-bottom px(20)
+        width px(210)
+
+        border-radius: px(8)
+        border 1px solid #dd82c4
+        background #f4d8ef
+
+        .icon-ercode
+            position: relative
+            margin px(20) auto 0
+
+            .light
+                abs-top 0
+                left 0
+                right 0
+                width 100%
+                margin auto
+                height px(16)
+                
+                background url('../image/light.png') center no-repeat
+                background-size 100% 100%
+
+                animation: up-down 1.6s infinite linear both
+
+    .main
+        display: inline-block
+        vertical-align: top
+        margin-left px(10)
+
+        padding px(20) px(40)
+        width px(760)
+        border-radius: px(8)
+        border 1px solid #fbc7ed
+
+        background #ffffff
+
+        .title
+            position: relative
+            height px(60)
+            line-height: @height
+
+            h2
+                margin 0
+                color #909090
+                font-size: px(38)
+
+    .news-tabs
+        abs-right 0
+
+        font-size: 0
+        .tab
+            z-index: 2
+            position: relative
+            display inline-block
+            margin-bottom -1px
+            width px(90)
+            height px(50)
+            line-height: @height
+            border-bottom 1px solid transparent
+
+            font-size: px(20)
+            text-align: center
+            text-decoration: none
+
+            color #919191
+
+            &:hover, &.active
+                text-decoration: none
+                color #a85092
+                border-bottom 1px solid $main-color
+
+                &:after
+                    content: " "
+                    abs-bottom -1px
+                    width 100%
+                    height 1px 
+                    background $main-color
+
+    .news-content
+        margin px(10) 0 0
+        padding px(10) 0
+                
+        .list a
+            position: relative
+            display: block
+            padding 0 px(100) 0 px(60)
+            height px(54)
+            line-height @height
+            
+            border-bottom px(1) dashed #e5cade
+            text-decoration: none
+            font-size px(16)
+            color #898989
+
+            span
+                display: block
+                white-space: nowrap;
+                max-width: px(510)
+                overflow: hidden
+                text-overflow: ellipsis
+
+            &:before
+                content attr(data-tag)
+                abs-left 0
+                top 0
+                bottom 0
+                margin auto
+                width px(42)
+                height px(20)
+                line-height: @height
+                border-radius: @height
+
+                font-size: px(16)
+                text-align: center
+                color #fff
+                background #ce6cb3
+
+            &:after
+                content attr(data-date)
+                abs-right 0
+                top 0
+                bottom 0
+                margin auto
+                width px(100)
+                height px(20)
+                line-height: @height
+                border-radius: px(8)
+
+                font-size: px(16)
+                text-align: center
+                color @color
+
+            &:hover
+                color lighten(@color, 20%)
+
+        .pagination 
+            margin px(20) 0 0
+            text-align: center
+            a
+                display: inline-block
+                margin 0 px(6)
+                padding 0 px(10)
+                
+                height px(28)
+                line-height: @height
+
+                border-radius: px(8)
+                border 1px solid #ce6cb3
+
+                text-decoration: none
+                color #ce6cb3
+
+                &.current
+                    background @color
+                    color #fff
+    
+    .content-box
+        padding 0 px(10)
+
+        h2
+            margin 0 0 px(10)
+            font-size: px(14)
+            color #626262
+
+        .icon-title-call
+            margin px(20) auto
+
+        .phone-tabs
+            margin-bottom px(6)
+            .tab
+                display: inline-block
+                vertical-align: top
+                margin-left px(6)
+
+                width px(90)
+                height px(36)
+                line-height: @height
+                border-radius: px(8)
+                border 1px solid #fff
+
+                text-decoration: none
+                text-align: center
+                font-size: px(16)
+
+                color #fff
+                background: #c2bcbc
+
+                &:first-child
+                    margin-left 0
+
+                &.active
+                    background #ea965f
+
+                svg
+                    margin-top px(-6)
+                    width px(19)
+
+        .phone,.code
+            margin-bottom px(6)
+            padding 0 px(10)
+            width 100%
+            height px(38)
+            line-height: @height
+            border-radius: px(6)
+            border 1px solid #a5a5a5
+
+            outline: none
+            font-size: px(14)
+
+        .code
+            margin-right px(6)
+            display: inline-block
+            vertical-align: top
+            width px(96)
+
+        .ercode
+            display: inline-block
+            vertical-align: top
+            width px(85)
+            height px(38)
+            line-height: @height
+            border-radius: px(8)
+
+            text-decoration: none
+            text-align: center
+            font-size: px(14)
+            color #fff
+            background #a2d5e5
+
+        .submit
+            width 100%
+            height px(70)
+            line-height: @height
+            border 1px solid #86c3d9
+            border-radius: px(12)
+
+            text-align: center
+            font-size: px(22)
+            color #3f85a1
+            background #b8f0ff
+
+
+        .content-box
+            z-index: 22
+            abs-center()
+            top 0
+            bottom 0
+            margin auto
+            padding px(75) 0 0 px(70)
+
+            &[data-tag="android"]
+                .android
+                    display block
+                    
+            &[data-tag="ios"]
+                .ios
+                    display block
+
+        .icon-close
+            abs-right px(12)
+            top px(40)
+
+    .footer
+        padding-bottom px(10)
+        background #232323
